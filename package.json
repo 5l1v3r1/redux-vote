@@ -1,0 +1,25 @@
+{
+  "name": "redux-vote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require ./test/test_helper.js --recursive",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bminixhofer/redux-vote.git"
+  },
+  "keywords": [
+    "redux",
+    "react",
+    "node.js"
+  ],
+  "author": "bminixhofer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bminixhofer/redux-vote/issues"
+  },
+  "homepage": "https://github.com/bminixhofer/redux-vote#readme"
+}
