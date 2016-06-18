@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require ./test/test_helper.js --recursive",
+    "test": "mocha --require ./test/test_helper.js --compilers js:babel-core/register --recursive",
     "test:watch": "npm run test -- --watch"
+  },
+  "babel": {
+    "presets": ["es2015"]
   },
   "repository": {
     "type": "git",
