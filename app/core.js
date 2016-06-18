@@ -11,8 +11,10 @@ function getWinners(vote) {
   else return[a, b];
 }
 
-exports.vote = function(state, entry) {
-  return state.updateIn(['vote', 'tally', entry], 0, tally => tally + 1);
+exports.initialState = Map();
+
+exports.vote = function(voteState, entry) {
+  return voteState.updateIn(['tally', entry], 0, tally => tally + 1);
 }
 
 exports.next = function(state) {

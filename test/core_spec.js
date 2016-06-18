@@ -1,49 +1,37 @@
 import {List, Map} from 'immutable';
 import {expect} from 'chai';
 
-import {setEntries, next, vote} from '../app/index.js';
+import {setEntries, next, vote} from '../app/core.js';
 
 describe('application logic', () => {
  describe('vote', () => {
    it('creates a counter for the voted entry', () => {
      const state = Map({
-       vote: Map({
-         pair: List.of('Movie 1', 'Movie 2')
-       }),
-       entries: List.of('Movie 3')
-     })
+       pair: List.of('Movie 1', 'Movie 2')
+     });
      const newState = vote(state, 'Movie 1');
      expect(newState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Movie 1', 'Movie 2'),
-          tally: Map({
-            'Movie 1' : 1
-          })
-        }),
-        entries: List.of('Movie 3')
+      pair: List.of('Movie 1', 'Movie 2'),
+      tally: Map({
+        'Movie 1' : 1
+      })
      }));
    });
    it('increments the counter', () => {
      const state = Map({
-       vote: Map({
-         pair: List.of('Movie 1', 'Movie 2'),
-         tally: Map({
-           'Movie 1' : 2,
-           'Movie 2': 3
-         })
-       }),
-       entries: List.of('Movie 3')
+       pair: List.of('Movie 1', 'Movie 2'),
+       tally: Map({
+         'Movie 1' : 2,
+         'Movie 2': 3
+       })
      })
      const newState = vote(state, 'Movie 1');
      expect(newState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Movie 1', 'Movie 2'),
-          tally: Map({
-            'Movie 1' : 3,
-            'Movie 2' : 3
-          })
-        }),
-        entries: List.of('Movie 3')
+       pair: List.of('Movie 1', 'Movie 2'),
+       tally: Map({
+         'Movie 1' : 3,
+         'Movie 2' : 3
+       })
      }));
    });
  });
