@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "babel-node index.js",
     "test": "mocha --require ./test/test_helper.js --compilers js:babel-core/register --recursive",
     "test:watch": "npm run test -- --watch"
   },
